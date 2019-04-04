@@ -1,3 +1,5 @@
+const path = require("path");
+
 const config = {
   projectName: 'pms-taro-kit',
   date: '2019-4-3',
@@ -13,7 +15,8 @@ const config = {
     babel: {
       sourceMap: true,
       presets: [
-        ['env', {
+        [
+          'env', {
           modules: false
         }]
       ],
@@ -24,13 +27,20 @@ const config = {
       ]
     }
   },
-  defineConstants: {
+  defineConstants: {},
+  alias: {
+    '@actions': path.resolve(__dirname, '..', 'src/actions'),
+    '@assets': path.resolve(__dirname, '..', 'src/assets'),
+    '@components': path.resolve(__dirname, '..', 'src/components'),
+    '@constants': path.resolve(__dirname, '..', 'src/constants'),
+    '@reducers': path.resolve(__dirname, '..', 'src/reducers'),
+    '@styles': path.resolve(__dirname, '..', 'src/styles'),
+    '@store': path.resolve(__dirname, '..', 'src/store'),
+    '@utils': path.resolve(__dirname, '..', 'src/utils')
   },
   copy: {
-    patterns: [
-    ],
-    options: {
-    }
+    patterns: [],
+    options: {}
   },
   weapp: {
     module: {
@@ -47,9 +57,7 @@ const config = {
         },
         pxtransform: {
           enable: true,
-          config: {
-
-          }
+          config: {}
         },
         url: {
           enable: true,
